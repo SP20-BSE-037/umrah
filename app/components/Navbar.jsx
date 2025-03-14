@@ -11,7 +11,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md py-4">
+    <nav className="bg-white shadow-md py-4 sticky">
       <div className="max-w-7xl mx-auto px-2 sm:px-8 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Left Side: Hamburger (Mobile) */}

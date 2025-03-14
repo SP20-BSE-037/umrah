@@ -9,12 +9,14 @@ import ImageGallery from "./components/ImageGallery";
 import UmrahPackage from "./components/UmrahPackage";
 import Footer from "./components/Footer";
 import { Navbar } from "./components/Navbar";
+// import { Content } from "./components/Content";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
+      {/* <Content/> */}
       <PopularPackages />
       <Ziyarat />
       <BookingProcess />
