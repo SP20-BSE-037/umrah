@@ -8,10 +8,12 @@ import RealStories from "./components/RealStories";
 import ImageGallery from "./components/ImageGallery";
 import UmrahPackage from "./components/UmrahPackage";
 import Footer from "./components/Footer";
+import { Navbar } from "./components/Navbar";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
       <PopularPackages />
       <Ziyarat />

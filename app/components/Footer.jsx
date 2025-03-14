@@ -21,7 +21,7 @@ const Footer = () => {
             designing services to meet budget range and facilities requirements
             of pilgrims.
           </p>
-          <img src="/mosque-logo.png" alt="Mosque Logo" className="mt-4 w-24" />
+          <img src="/logo.svg" alt="Mosque Logo" className="mt-4 w-24" />
           <p className="text-xs text-gray-400 mt-2">
             <span className="text-yellow-400 font-bold">Note:</span> All fares
             advertised are subject to availability and start from the prices we
