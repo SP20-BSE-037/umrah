@@ -53,14 +53,14 @@ export default function UmrahPackage() {
   };
 
   return (
-    <div className="py-16 px-6 max-w-7xl mx-auto ">
+    <div className="py-16 px-6 max-w-7xl mx-auto">
       {/* Heading */}
       <h2 className="text-center text-4xl font-bold text-teal-900 mb-8">
         Umrah <span className="text-yellow-600">Package</span>
       </h2>
 
       {/* Includes & Exclusive */}
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-12">
+      <div className="grid grid-cols-2 gap-6 mb-12">
         <div>
           <h3 className="bg-yellow-600 text-white text-lg font-semibold py-2 px-4 rounded-md text-center">
             Includes
@@ -98,12 +98,12 @@ export default function UmrahPackage() {
         <span className="text-yellow-600">(FAQs)</span>
       </h3>
 
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-16 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           {faqs.map((faq, index) => (
             <div key={index} className="border rounded-md mb-3">
               <button
-                className="w-full p-3 text-left flex justify-between items-center gap-y-20"
+                className="w-full p-3 text-left flex justify-between items-center"
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
@@ -118,17 +118,30 @@ export default function UmrahPackage() {
               )}
             </div>
           ))}
+          <div className="bg-teal-900 text-white p-6 rounded-lg text-center flex flex-col items-center">
+            <h1 className="text-2xl">
+              Do you offer installment plans or flexible payment options?
+            </h1>
+            <p className="mt-6">
+              Yes, we provide flexible installment plans to make it easier for
+              you to manage the cost of your trip. You can secure your package
+              with an initial deposit, and the remaining balance can be paid in
+              installments. Let us know what works best for you, and we'll guide
+              you through the process.
+            </p>
+          </div>
         </div>
 
         {/* Contact Section */}
-        <div className="bg-teal-900 text-white p-6 rounded-md text-center flex flex-col items-center ">
-          <div className="w-12 h-12 bg-white text-teal-900 rounded-full flex items-center justify-center mb-3">
+        <div className="bg-teal-900 text-white p-6 rounded-4xl text-center flex flex-col items-center w-full md:w-[500px]">
+          <div className="w-12 h-12 bg-white text-teal-900 flex items-center justify-center mb-3 rounded-2xl">
             📞
           </div>
-          <p className="mb-4">
+          <h1 className="text-2xl">You Have Different Question?</h1>
+          <p className="mt-6">
             Our team will answer all your questions. We ensure a quick response.
           </p>
-          <button className="bg-yellow-600 text-white py-2 px-6 rounded-xl text-lg font-semibold">
+          <button className="bg-yellow-600 text-white py-2 px-6 rounded-3xl text-lg font-semibold mt-12">
             Call Now
           </button>
         </div>

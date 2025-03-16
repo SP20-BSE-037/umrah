@@ -11,7 +11,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md py-4 sticky">
+    <nav className="bg-white shadow-md py-4 sticky top-0 z-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-8 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Left Side: Hamburger (Mobile) */}
@@ -55,7 +55,7 @@ export const Navbar = () => {
               Contact
             </button>
             <button className="bg-yellow-500 text-white px-4 py-2 rounded-full font-semibold shadow-md hover:bg-yellow-600 transition duration-300">
-              Book Now
+              Contact Us
             </button>
           </div>
         </div>
@@ -79,7 +79,7 @@ export const Navbar = () => {
             Contact
           </button>
           <button className="bg-yellow-500 text-white px-4 py-2 rounded-full font-semibold shadow-md hover:bg-yellow-600 transition duration-300 w-fit">
-            Book Now
+            Contact Us
           </button>
         </div>
       </div>

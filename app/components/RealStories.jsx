@@ -1,50 +1,124 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function RealStories() {
+  const testimonials = [
+    {
+      name: "Imran Sohail",
+      date: "Jul 12, 2024",
+      review:
+        "Excellent service. Spoke to Momina about my transaction with held. She helped me and my transaction was successful within no time. Highly recommended. Great staff. Very polite and skill full.",
+    },
+    {
+      name: "Ayesha Khan",
+      date: "Aug 05, 2024",
+      review:
+        "A wonderful experience! The team guided me throughout the Umrah journey. Highly professional and caring staff. Thank you for your support!",
+    },
+    {
+      name: "Mohammad Rafi",
+      date: "Sep 10, 2024",
+      review:
+        "Fantastic service! They made my Umrah trip smooth and stress-free. I highly recommend their services to everyone.",
+    },
+    {
+      name: "Zainab Fatima",
+      date: "Oct 02, 2024",
+      review:
+        "Very satisfied with their service. The booking process was easy, and the support team was always available to help. A five-star experience!",
+    },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
   return (
-    <div className="py-16 px-6 w-7xl mx-auto">
-      {/* Testimonials Slider */}
-      <div className="overflow-hidden w-full flex space-x-5 px-4 shadow-2xl">
-        {[1, 2, 3, 4].map((item) => (
-          <div
-            key={item}
-            className="min-w-[400px] bg-white p-4 rounded-lg shadow-2xl"
-          >
-            <Image src="/star.svg" alt="Review" width={100} height={50} />
-            <p className="text-lg text-gray-700 mt-2">
-              <strong>Imran Sohail</strong>
-              <br />
-              Excellent service. Spoke to Momina about my transaction with held.
-              She helped me and my transaction was successful within no time.
-              Highly recommended. Great staff. Very politeand skill full."
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center mt-4 space-x-2">
-        {[1, 2, 3, 4].map((_, i) => (
-          <div key={i} className="h-2 w-2 rounded-full bg-gray-400"></div>
-        ))}
-      </div>
-
-      {/* Section Heading */}
-      <h2 className="text-center text-4xl font-bold text-teal-900 mt-8">
-        Watch <span className="text-yellow-600">Real</span> Stories
+    <div className="py-16 px-6 max-w-7xl mx-auto">
+      {/* Section Title */}
+      <h2 className="text-center text-3xl font-bold text-teal-900">
+        Our Happy <span className="text-yellow-600">Pilgrims</span>
       </h2>
 
-      {/* Video Placeholders */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-7xl mx-auto h-[700px]">
-        {[1, 2, 3].map((item) => (
+      {/* Desktop View */}
+      <div className="hidden sm:flex overflow-hidden w-full space-x-5 px-4 mt-10">
+        {testimonials.map((item, index) => (
           <div
-            key={item}
-            className="bg-gray-300  rounded-lg flex items-center justify-center  h-[500px]"
+            key={index}
+            className="min-w-[400px] bg-white p-6 rounded-lg shadow-lg border border-gray-200"
           >
-            <span className="text-gray-500">Video {item}</span>
+            <div className="flex items-center justify-between">
+              <Image src="/verified.svg" alt="Rating" width={100} height={20} />
+              <span className="text-gray-500 text-sm">{item.date}</span>
+            </div>
+            <p className="font-semibold mt-3">{item.review.slice(0, 40)}...</p>
+            <p className="text-gray-700 text-sm mt-2">{item.review}</p>
+            <h3 className="font-bold text-gray-900 mt-4">{item.name}</h3>
           </div>
         ))}
+      </div>
+
+      {/* Mobile View - Centered Active Card */}
+      <div className="sm:hidden flex flex-col items-center mt-10">
+        <div className="relative w-80">
+          <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+            <div className="flex items-center justify-between">
+              <Image
+                src="/trustpilot-stars.svg"
+                alt="Rating"
+                width={100}
+                height={20}
+              />
+              <span className="text-gray-500 text-sm">
+                {testimonials[activeIndex].date}
+              </span>
+            </div>
+            <p className="font-semibold mt-3">
+              {testimonials[activeIndex].review.slice(0, 40)}...
+            </p>
+            <p className="text-gray-700 text-sm mt-2">
+              {testimonials[activeIndex].review}
+            </p>
+            <h3 className="font-bold text-gray-900 mt-4">
+              {testimonials[activeIndex].name}
+            </h3>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-[-30px] top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full"
+          >
+            ◀
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-[-30px] top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full"
+          >
+            ▶
+          </button>
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex space-x-2 mt-4">
+          {testimonials.map((_, index) => (
+            <div
+              key={index}
+              className={`h-2 w-6 rounded-full ${
+                activeIndex === index ? "bg-teal-900" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
